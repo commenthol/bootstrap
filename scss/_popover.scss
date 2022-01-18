@@ -142,8 +142,8 @@
   padding: $popover-header-padding-y $popover-header-padding-x;
   margin-bottom: 0; // Reset the default from Reboot
   @include font-size($font-size-base);
-  color: $popover-header-color;
-  background-color: $popover-header-bg;
+  color: var(--#{$variable-prefix}popover-header-color); // $popover-header-color;
+  background-color: var(--#{$variable-prefix}popover-header-bg); // $popover-header-bg;
   border-bottom: $popover-border-width solid $popover-border-color;
   @include border-top-radius($popover-inner-border-radius);
 
@@ -154,5 +154,5 @@
 
 .popover-body {
   padding: $popover-body-padding-y $popover-body-padding-x;
-  color: $popover-body-color;
+  color: var(--#{$variable-prefix}popover-body-color); // $popover-body-color;
 }

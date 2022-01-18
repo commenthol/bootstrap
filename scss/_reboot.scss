@@ -224,7 +224,7 @@ small {
 
 mark {
   padding: $mark-padding;
-  background-color: $mark-bg;
+  background-color: var(--#{$variable-prefix}mark-bg);// $mark-bg;
 }
 
 
@@ -248,11 +248,11 @@ sup { top: -.5em; }
 // Links
 
 a {
-  color: $link-color;
+  color: var(--#{$variable-prefix}link-color); //$link-color;
   text-decoration: $link-decoration;
 
   &:hover {
-    color: $link-hover-color;
+    color: var(--#{$variable-prefix}link-hover-color); // $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 }
@@ -303,7 +303,7 @@ pre {
 
 code {
   @include font-size($code-font-size);
-  color: $code-color;
+  color: var(--#{$variable-prefix}code-color); // $code-color;
   word-wrap: break-word;
 
   // Streamline the style when inside anchors to avoid broken underline and more
@@ -315,8 +315,8 @@ code {
 kbd {
   padding: $kbd-padding-y $kbd-padding-x;
   @include font-size($kbd-font-size);
-  color: $kbd-color;
-  background-color: $kbd-bg;
+  color: var(--#{$variable-prefix}white); // $kbd-color;
+  background-color: var(--#{$variable-prefix}gray-900); // $kbd-bg;
   @include border-radius($border-radius-sm);
 
   kbd {

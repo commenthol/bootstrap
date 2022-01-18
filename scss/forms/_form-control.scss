@@ -10,10 +10,10 @@
   @include font-size($input-font-size);
   font-weight: $input-font-weight;
   line-height: $input-line-height;
-  color: $input-color;
-  background-color: $input-bg;
+  color: var(--#{$variable-prefix}input-color); //$input-color;
+  background-color: var(--#{$variable-prefix}input-bg); // $input-bg;
   background-clip: padding-box;
-  border: $input-border-width solid $input-border-color;
+  border: $input-border-width solid var(--#{$variable-prefix}input-border-color); // $input-border-color;
   appearance: none; // Fix appearance for date inputs in Safari
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
@@ -32,9 +32,9 @@
 
   // Customize the `:focus` state to imitate native WebKit styles.
   &:focus {
-    color: $input-focus-color;
-    background-color: $input-focus-bg;
-    border-color: $input-focus-border-color;
+    color: var(--#{$variable-prefix}input-focus-color); // $input-focus-color;
+    background-color: var(--#{$variable-prefix}input-focus-bg); // $input-focus-bg;
+    border-color: var(--#{$variable-prefix}input-focus-border-color);// $input-focus-border-color;
     outline: 0;
     @if $enable-shadows {
       @include box-shadow($input-box-shadow, $input-focus-box-shadow);
@@ -89,7 +89,7 @@
   }
 
   &:hover:not(:disabled):not([readonly])::file-selector-button {
-    background-color: $form-file-button-hover-bg;
+    background-color: var(--#{$variable-prefix}form-file-button-hover-bg); // $form-file-button-hover-bg;
   }
 }
 

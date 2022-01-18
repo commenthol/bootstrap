@@ -25,6 +25,100 @@
   --#{$variable-prefix}black-rgb: #{to-rgb($black)};
   --#{$variable-prefix}body-color-rgb: #{to-rgb($body-color)};
   --#{$variable-prefix}body-bg-rgb: #{to-rgb($body-bg)};
+  --#{$variable-prefix}border-color: #{$border-color};
+
+  @each $state, $background in $theme-colors {
+    // from scss/mixins/_buttons.scss
+    $border: $background;
+    $color: color-contrast($background);
+    $hover-background: if($color == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount));
+    $hover-border: if($color == $color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount));
+    $hover-color: color-contrast($hover-background);
+    $active-background: if($color == $color-contrast-light, shade-color($background, $btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount));
+    $active-border: if($color == $color-contrast-light, shade-color($border, $btn-active-border-shade-amount), tint-color($border, $btn-active-border-tint-amount));
+    $active-color: color-contrast($active-background);
+
+    --#{$variable-prefix}button-#{$state}-color: #{color-contrast($background)};
+    --#{$variable-prefix}button-#{$state}-border: #{$background};
+    --#{$variable-prefix}button-#{$state}-hover-bg: #{$hover-background};
+    --#{$variable-prefix}button-#{$state}-hover-border: #{$hover-border};
+    --#{$variable-prefix}button-#{$state}-hover-color: #{$hover-color};
+    --#{$variable-prefix}button-#{$state}-active-bg: #{$active-background};
+    --#{$variable-prefix}button-#{$state}-active-border: #{$active-border};
+    --#{$variable-prefix}button-#{$state}-active-color: #{$active-color};
+    --#{$variable-prefix}button-#{$state}-box-shadow: #{rgba(mix($color, $border, 15%), .5)};
+  }
+
+  @each $state, $value in $theme-colors {
+    $alert-background: shift-color($value, $alert-bg-scale);
+    $alert-border: shift-color($value, $alert-border-scale);
+    $alert-color: shift-color($value, $alert-color-scale);
+
+    @if (contrast-ratio($alert-background, $alert-color) < $min-contrast-ratio) {
+      $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
+    }
+
+    --#{$variable-prefix}alert-#{$state}-bg: #{$alert-background};
+    --#{$variable-prefix}alert-#{$state}-border: #{$alert-border};
+    --#{$variable-prefix}alert-#{$state}-color: #{$alert-color};
+    --#{$variable-prefix}alert-#{$state}-link-color: #{shade-color($alert-color, 20%)};
+  }
+
+  --#{$variable-prefix}mark-bg: #{$mark-bg};
+  --#{$variable-prefix}link-color: #{$link-color};
+  --#{$variable-prefix}link-hover-color: #{$link-hover-color};
+  --#{$variable-prefix}code-color: #{$code-color};
+
+  // Tables
+  --#{$variable-prefix}table-color: #{$table-color};
+  --#{$variable-prefix}table-bg: #{$table-bg};
+  --#{$variable-prefix}table-border-color: #{$table-border-color};
+  --#{$variable-prefix}table-accent-bg: #{$table-accent-bg};
+  --#{$variable-prefix}table-striped-color: #{$table-striped-color};
+  --#{$variable-prefix}table-striped-bg: #{$table-striped-bg};
+  --#{$variable-prefix}table-active-color: #{$table-active-color};
+  --#{$variable-prefix}table-active-bg: #{$table-active-bg};
+  --#{$variable-prefix}table-hover-color: #{$table-hover-color};
+  --#{$variable-prefix}table-hover-bg: #{$table-hover-bg};
+
+  @each $state, $background in $table-variants {
+    $color: color-contrast(opaque($body-bg, $background));
+    $hover-bg: mix($color, $background, percentage($table-hover-bg-factor));
+    $striped-bg: mix($color, $background, percentage($table-striped-bg-factor));
+    $active-bg: mix($color, $background, percentage($table-active-bg-factor));
+    $border-color: mix($color, $background, percentage($table-border-factor));
+
+    --#{$variable-prefix}table-#{$state}-color: #{$color};
+    --#{$variable-prefix}table-#{$state}-bg: #{$background};
+    --#{$variable-prefix}table-#{$state}-border-color: #{$border-color};
+    --#{$variable-prefix}table-#{$state}-striped-bg: #{$striped-bg};
+    --#{$variable-prefix}table-#{$state}-striped-color: #{color-contrast($striped-bg)};
+    --#{$variable-prefix}table-#{$state}-active-bg: #{$active-bg};
+    --#{$variable-prefix}table-#{$state}-active-color: #{color-contrast($active-bg)};
+    --#{$variable-prefix}table-#{$state}-hover-bg: #{$hover-bg};
+    --#{$variable-prefix}table-#{$state}-hover-color: #{color-contrast($hover-bg)};
+  }
+
+  --#{$variable-prefix}input-color: #{$input-color};
+  --#{$variable-prefix}input-bg: #{$input-bg};
+  --#{$variable-prefix}input-border-color: #{$input-border-color};
+  --#{$variable-prefix}input-focus-color: #{$input-focus-color};
+  --#{$variable-prefix}input-focus-bg: #{$input-focus-bg};
+  --#{$variable-prefix}input-focus-border-color: #{$input-focus-border-color};
+  --#{$variable-prefix}form-file-button-hover-bg: #{$form-file-button-hover-bg};
+
+  --#{$variable-prefix}popover-header-color: #{$popover-header-color};
+  --#{$variable-prefix}popover-header-bg: #{$popover-header-bg};
+  --#{$variable-prefix}popover-body-color: #{$popover-body-color};
+
+  --#{$variable-prefix}accordion-button-color: #{$accordion-button-color};
+  --#{$variable-prefix}accordion-button-bg: #{$accordion-button-bg};
+  --#{$variable-prefix}accordion-button-active-color: #{$accordion-button-active-color};
+  --#{$variable-prefix}accordion-button-active-bg: #{$accordion-button-active-bg};
+  --#{$variable-prefix}accordion-border-color: #{$accordion-border-color};
+  --#{$variable-prefix}accordion-button-focus-border-color: #{$accordion-button-focus-border-color};
+
+  --#{$variable-prefix}dropdown-link-hover-color: #{$dropdown-link-hover-color};
 
   // Fonts
 

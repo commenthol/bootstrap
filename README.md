@@ -21,6 +21,11 @@
   <a href="https://blog.getbootstrap.com/">Blog</a>
 </p>
 
+## Modifications
+
+**This is a modified bootstrap version with focus on providing colors as css3 variables in :root**
+
+Compile with the changes: `npm run css3vars`
 
 ## Bootstrap 5
 

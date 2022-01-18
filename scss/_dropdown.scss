@@ -155,7 +155,7 @@
 
   &:hover,
   &:focus {
-    color: $dropdown-link-hover-color;
+    color: var(--#{$variable-prefix}dropdown-link-hover-color); // $dropdown-link-hover-color;
     text-decoration: if($link-hover-decoration == underline, none, null);
     @include gradient-bg($dropdown-link-hover-bg);
   }

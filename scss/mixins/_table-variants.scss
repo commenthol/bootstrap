@@ -7,15 +7,24 @@
     $active-bg: mix($color, $background, percentage($table-active-bg-factor));
     $border-color: mix($color, $background, percentage($table-border-factor));
 
-    --#{$variable-prefix}table-color: #{$color};
-    --#{$variable-prefix}table-bg: #{$background};
-    --#{$variable-prefix}table-border-color: #{$border-color};
-    --#{$variable-prefix}table-striped-bg: #{$striped-bg};
-    --#{$variable-prefix}table-striped-color: #{color-contrast($striped-bg)};
-    --#{$variable-prefix}table-active-bg: #{$active-bg};
-    --#{$variable-prefix}table-active-color: #{color-contrast($active-bg)};
-    --#{$variable-prefix}table-hover-bg: #{$hover-bg};
-    --#{$variable-prefix}table-hover-color: #{color-contrast($hover-bg)};
+    // --#{$variable-prefix}table-color: #{$color};
+    // --#{$variable-prefix}table-bg: #{$background};
+    // --#{$variable-prefix}table-border-color: #{$border-color};
+    // --#{$variable-prefix}table-striped-bg: #{$striped-bg};
+    // --#{$variable-prefix}table-striped-color: #{color-contrast($striped-bg)};
+    // --#{$variable-prefix}table-active-bg: #{$active-bg};
+    // --#{$variable-prefix}table-active-color: #{color-contrast($active-bg)};
+    // --#{$variable-prefix}table-hover-bg: #{$hover-bg};
+    // --#{$variable-prefix}table-hover-color: #{color-contrast($hover-bg)};
+    --#{$variable-prefix}table-color: var(--#{$variable-prefix}table-#{$state}-color);
+    --#{$variable-prefix}table-bg: var(--#{$variable-prefix}table-#{$state}-bg);
+    --#{$variable-prefix}table-border-color: var(--#{$variable-prefix}table-#{$state}-border-color);
+    --#{$variable-prefix}table-striped-bg: var(--#{$variable-prefix}table-#{$state}-striped-bg);
+    --#{$variable-prefix}table-striped-color: var(--#{$variable-prefix}table-#{$state}-striped-color);
+    --#{$variable-prefix}table-active-bg: var(--#{$variable-prefix}table-#{$state}-active-bg);
+    --#{$variable-prefix}table-active-color: var(--#{$variable-prefix}table-#{$state}-active-color);
+    --#{$variable-prefix}table-hover-bg: var(--#{$variable-prefix}table-#{$state}-hover-bg);
+    --#{$variable-prefix}table-hover-color: var(--#{$variable-prefix}table-#{$state}-hover-color);
 
     color: var(--#{$variable-prefix}table-color);
     border-color: var(--#{$variable-prefix}table-border-color);
